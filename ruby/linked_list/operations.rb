@@ -24,7 +24,7 @@ class LinkedList
   end
   
   # Add a new node in the front
-  def to_front(value)
+  def add_to_front(value)
     new_node = Node.new(value, nil)
     if @head == nil
       @head = new_node
@@ -54,7 +54,7 @@ class LinkedList
     
     curr_node = @head
     new_head = @head.next_node
-    @head.next = nil
+    @head.next_node = nil
     @head = new_head
     curr_node
   end
@@ -62,12 +62,18 @@ class LinkedList
   # Insert at specific place
   def insert_at(value, index)
     curr_node = @head
+    new_node = Node.new(value, nil)
+    
+     if index == 0
+       add_to_front(value)
+     end
+    
     (index-1).times do 
       raise "List not long enough" if curr_node.nil?
       curr_node = curr_node.next_node
     end
     
-    new_node = Node.new(value, nil)
+    
     new_node.next_node = curr_node.next_node
     curr_node.next_node = new_node
   end
@@ -75,6 +81,7 @@ class LinkedList
   # Delete the item at specified index
   def remove_at(index)
     curr_node = @head
+    prev_node = nil
     
     if index == 0
       temp = @head.next_node
@@ -95,7 +102,7 @@ class LinkedList
   # Reverse the list
   def reverse
     curr_node = @head
-    prev= nil
+    previous= nil
     
     while curr_node != nil
       next_node = curr_node.next_node
