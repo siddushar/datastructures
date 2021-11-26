@@ -12,7 +12,7 @@ class Node
     res = '['
     
     while curr_node.next_node != nil
-      res = res + curr_node.value.to_s
+      res = res + curr_node.value.to_s + ", " 
       curr_node = curr_node.next_node
     end
     res = res + curr_node.value.to_s + ']'
