@@ -112,7 +112,7 @@ class LinkedList
     curr_node = @head
     res = ""
     while curr_node.next_node != nil
-      res +=  "->" + curr_node.value.to_s
+      res += curr_node.value.to_s + "->" 
       curr_node = curr_node.next_node
     end
     res = res + "->" + curr_node.value.to_s
