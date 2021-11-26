@@ -8,6 +8,10 @@ class Node
 end
 
 class LinkedList
+  
+  def initialize(data)
+    @head = Node.new(data, nil)
+  end
 
   # Push to the end of the list
   def push(value)
@@ -16,7 +20,7 @@ class LinkedList
     while curr_node.next_node != nil
       curr_node = curr_node.next_node
     end
-    curr_node = Node.new(value, nil)
+    curr_node.next_node = Node.new(value, nil)
   end
   
   # Add a new node in the front
