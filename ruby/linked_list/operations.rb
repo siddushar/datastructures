@@ -68,12 +68,50 @@ class LinkedList
     curr_node.next_node = new_node
   end
   
-  # Delete at
-  
-  def delete_at(index)
+  # Delete the item at specified index
+  def remove_at(index)
     curr_node = @head
     
+    if index == 0
+      temp = @head.next_node
+      @head = temp
+    else
+      
+      (0..index).each do 
+        return false if curr_node.nil?
+       
+        prev_node = curr_node
+        curr_node = curr_node.next_node
+      end
+      prev_node.next_node = curr_node.next_node
+    end
+    true
   end
   
+  # Reverse the list
+  def reverse
+    curr_node = @head
+    prev= nil
+    
+    while curr_node != nil
+      next_node = curr_node.next_node
+      curr_node.next_node = previous
+      previous = curr_node
+      curr_node = next_node
+    end
+ 
+    @head = previous
+  end
   
+  # Display
+  def display
+    curr_node = @head
+    res = ""
+    while curr_node.next_node != nil
+      res +=  "->" + curr_node.value.to_s
+      curr_node = curr_node.next_node
+    end
+    res = res + "->" + curr_node.value.to_s
+  end
+  res
 end
