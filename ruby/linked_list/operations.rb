@@ -63,7 +63,7 @@ class LinkedList
   def insert_at(value, index)
     curr_node = @head
     (index-1).times do 
-      raise "List not long enough" if current.nil?
+      raise "List not long enough" if curr_node.nil?
       curr_node = curr_node.next_node
     end
     
