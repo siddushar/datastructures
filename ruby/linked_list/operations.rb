@@ -113,5 +113,5 @@ class LinkedList
     end
     res = res + "->" + curr_node.value.to_s
   end
-  res
+  
 end
