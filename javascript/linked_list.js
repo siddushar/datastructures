@@ -5,7 +5,6 @@ class Node {
   }
 }
 
-// Linked list operations
 class LinkedList {
  constructor(value) {
    this.head = { 
@@ -37,12 +36,69 @@ class LinkedList {
  }
  
  // Insert at specific index
+ insert(value, index) {
+   const  new_node = new Node(value)
+   
+   if (index >= this.length) {
+     this.append(value);
+     return this.printList();
+   }
+   
+   if (index === 0) {
+      this.prepend(value);
+      return this.printList();
+    }
+   
+   const leader =this.traverseToIndex(index-1);
+   
+   new_node.next = leader.next
+   leader.next = new_node
+   return this.printList();
+ }
+ 
+ 
+ traverseToIndex(index) {
+   let count = 0;
+   let currentNode = this.head
+   
+   while(count !== index) {
+     currentNode = currentNode.next
+     count++;
+   }
+   return currentNode;
+ }
+ 
+ printList() {
+   const arr = []
+   let currentNode = this.head;
+   
+   while(currentNode !== null) {
+     arr.push(currentNode.value)
+     currentNode = currentNode.next
+   }
+   this.length++;
+   return arr;
+ }
+ 
+ remove(index) {
+   if(index > this.length) {
+     throw "List not long enough";
+   }
+   const leader = this.traverseToIndex(index-1);
+   const unwanted = leader.next
+   leader.next = unwanted.next
+   this.length--;
+   return this.printList();
+ }
  
 }
   
   let list = new LinkedList(10);
   list.append(5)
   list.append(14)
-  console.log(list)
   list.prepend(15)
-  console.log(list)
+  list.insert(99, 2)
+  list.insert(100, 123)
+  list.remove(92)
+  console.log(list.printList())
+ 
