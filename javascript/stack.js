@@ -5,10 +5,39 @@
   // Linked lists:
 
 // Stacks can be implemented using 
-  // Arrays:
-    
 
-  // Linked lists:
+
+// Implement stacks using  Arrays:
+class Stack {
+  constructor() {
+    this.array = []
+  }
+  
+  push(value) {
+    this.array.push(value)
+    return this;
+  }
+  
+  pop() {
+     this.array.pop();
+    return this;
+  }
+  
+  // See top of the Stack
+  peek() {
+    return this.array[this.array.length-1]
+  }
+}
+
+
+const myStack = new Stack();
+myStack.push("google")
+myStack.push("udemy")
+myStack.pop()
+console.log(myStack.peek());
+
+    
+// Implement stacks using Linked lists
 
 class Node{
   constructor(value) {
