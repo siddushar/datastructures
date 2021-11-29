@@ -90,6 +90,25 @@ class LinkedList {
    this.length--;
    return this.printList();
  }
+  
+  reverse() {
+   if (!this.head.next) {
+     return this;
+   }
+    
+    let first = this.head
+    let second = this.head.next
+    this.tail = this.head
+    
+    while(second) {
+      const temp = second.next
+      second.next = first
+      first = second
+      second = temp
+    }
+    this.head.next = null
+    this.head = first
+ }
  
 }
   
@@ -100,5 +119,7 @@ class LinkedList {
   list.insert(99, 2)
   list.insert(100, 123)
   list.remove(92)
+  console.log(list.printList())
+  list.reverse
   console.log(list.printList())
  
