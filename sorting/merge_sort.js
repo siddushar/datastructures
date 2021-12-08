@@ -1,44 +1,33 @@
-et numbers = [99, 4, 432, 23, 24, 53, 5,34, 5]
+let numbers = [99, 4, 432, 23, 24, 53, 5,34, 5]
     console.log("Welcome to Programiz!");
     
     
-    function mergeSort(array) {
-        
-        
-        if (array.length === 1){
-            return array
-        }
-        
-        const len = array.length;
-        const middle =  Math.floor(len/2);
-        const left = array.slice(0, middle);
-        const right = array.slice(middle);
-        
-        //  console.log('left', left)
-        //  mergeSort(left)
-        //  mergeSort(right)
-        
-        return merge(
-            mergeSort(left),
-            mergeSort(right)
-            )
-        
-    }
-    
-    function merge(left, right) {
-        let res= [];
-        let leftIndex = 0;
-        let rightIndex = 0
-        
-        console.log("ptess", left)
-        while(leftIndex < left.length && rightIndex < right.length) {
-            if(left[leftIndex] < right[rightIndex]) {
-                res.push(left[leftIndex])
-                leftIndex++;
-            } else {
-                res.push(right[rightIndex])
-                rightIndex++;
-            }
-        }
-    }
-    mergeSort(numbers)
+    function mergeSort (array) {
+      if (array.length === 1) {
+      return array                            // return once we hit an array with a single item
+   }
+   const middle = Math.floor(array.length / 2) // get the middle item of the array rounded down
+   const left = array.slice(0, middle)         // items on the left side
+   const right = array.slice(middle)           // items on the right side
+   return merge(
+      mergeSort(left),
+      mergeSort(right)
+   )
+   }
+   // compare the arrays item by item and return the concatenated result
+   function merge (left, right) {
+      let result = []
+      let leftIndex = 0
+      let rightIndex = 0
+      while (leftIndex < left.length && rightIndex < right.length) {
+         if (left[leftIndex] < right[rightIndex]) {
+         result.push(left[leftIndex])
+         leftIndex++;
+         } else {
+         result.push(right[rightIndex])
+         rightIndex++;  
+      }
+   }
+   return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex))
+   }
+
