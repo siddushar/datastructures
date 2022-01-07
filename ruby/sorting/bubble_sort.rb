@@ -33,3 +33,10 @@ def bubble_sort(array)
 end
 
 puts bubble_sort(array)
+
+
+Space complexity: o(1)
+Time complexity:
+      Worst: O(n^2)
+      Avarage: O(n)
+      Best: O(n)
