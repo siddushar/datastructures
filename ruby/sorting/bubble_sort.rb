@@ -38,5 +38,5 @@ puts bubble_sort(array)
 Space complexity: o(1)
 Time complexity:
       Worst: O(n^2)
-      Avarage: O(n)
+      Avarage: O(n^2)
       Best: O(n)
