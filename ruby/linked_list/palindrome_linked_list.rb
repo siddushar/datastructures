@@ -55,3 +55,17 @@ def middle_node(head)
   end
   slow
 end
+
+
+# Using stacks and queue
+def is_palindrome(head)
+    stack = []
+    queue = []
+    current = head
+    while current
+        stack.unshift(current.val)
+        queue << current.val
+        current = current.next
+    end
+    queue == stack
+end
