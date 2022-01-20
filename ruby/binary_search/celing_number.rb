@@ -5,6 +5,8 @@ def ceiling_number(arr, target)
   _start = 0
   _end = arr.length - 1
   
+  return -1 if target > arr[_end]
+  
   while(_start <= _end)
     # Find midddle of the element
     mid = _start + (_end - _start)/2
