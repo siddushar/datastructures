@@ -19,10 +19,9 @@ def ans(arr, target)
    binary_serach(arr, _start, _end)
 end
 
+
 def binary_serach(arr, _start, _end)
-  
   while(_start <= _end)
-    
     mid = _start + (_end - _start)/2
     
     if target < arr[mid]
