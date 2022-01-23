@@ -1,3 +1,5 @@
+# find the length of cycle
+
 class LinkedListNode
     attr_accessor :value, :next_node
     def initialize(value, next_node=nil)
@@ -6,22 +8,24 @@ class LinkedListNode
     end   
 end
 
-
-def has_cycle(head)
-      slow, fast = head, head
+def cycle_length(head)
+   slow, fast = head, head
     
-    while(!fast.nil? && !fast.next_node.nil?)
-       fast = fast.next_node.next_node
-       slow = slow.next_node
-      if( slow == fast) 
-        temp = slow
-        len = 0
-        begin
-          temp = temp.next 
-          len +=1
-        end until(temp != slow)
-        return len
-      end
+    while(fast != nil && fast.next_node != nil)
+        slow = slow.next_node
+        fast = fast.next_node.next_node
+        
+        # if 2 points meets
+        if slow == fast
+           # calculate the cycle
+            temp = slow
+            length = 0
+            begin
+                temp = temp.slow
+                length +=1
+            end until(temp != slow)
+            return length
+        end
     end
     return 0
 end
