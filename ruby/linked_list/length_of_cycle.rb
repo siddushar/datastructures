@@ -20,7 +20,7 @@ def has_cycle(head)
           temp = temp.next 
           len +=1
         end until(temp != slow)
-        return length
+        return len
       end
     end
     return 0
