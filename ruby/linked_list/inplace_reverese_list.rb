@@ -9,6 +9,20 @@ end
 # Iterative way
 def reverse_list(head)
   return head if head.nil? || head.next.nil?
+   # Approach 1 
+  first = head
+  second = head.next
+  tail = head
+   while(second) do
+     temp = second.next
+     second.next = first
+     first = second
+     second = temp
+   end
+  this.head .next = nil
+  this.head = first
+    
+ # Approach 2
   prev = nil
   present = head
   next_node = present.next
