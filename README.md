@@ -17,4 +17,17 @@
       1. Slow lookup
       2. More memory
 
-
+# Stacks
+    # Complexity
+        push   - O(1)
+        pop    - O(1)
+        lookup - O(n)
+        peek   - O(1)
+        
+        
+# Queues
+    # Complexity
+        enquque - O(1) # push
+        dequque - O(1) # pop
+        lookup  - O(n)
+        peek    - O(1)
