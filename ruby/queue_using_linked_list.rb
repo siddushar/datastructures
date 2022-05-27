@@ -52,6 +52,7 @@ class MyQueue
     temp = self.head
     self.head = self.head.next_node
     self.tail = nil if self.head.nil?
+    self.length -= 1
     temp.val
   end
 end
